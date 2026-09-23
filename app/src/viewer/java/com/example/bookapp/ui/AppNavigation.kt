@@ -89,9 +89,6 @@ private const val ROUTE_TEXT = "text/{sectionId}"
 private const val ROUTE_TEXT_PAGER = "text_pager/{roleId}/{startIndex}"
 private const val ROUTE_COMPARE = "compare/{taziehId}"
 
-@Composable
-
-
 /** Viewer-local model used only by the read-only dialogue reader.
  * Kept in the Viewer source set so the Admin DialogueBuilderScreen is not
  * pulled into the Viewer APK just to provide this small data class.
@@ -102,6 +99,7 @@ private data class SectionPickerItem(
     val sectionTitle: String
 )
 
+@Composable
 fun AppNavigation(
     darkMode: Boolean,
     onDarkModeChange: (Boolean) -> Unit,
