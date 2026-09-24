@@ -14,12 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
-data class SectionPickerItem(
-    val sectionId: Long,
-    val roleTitle: String,
-    val sectionTitle: String
-)
-
 /**
  * صفحه‌ی ساخت گفتگو: از بین همه‌ی بخش‌های تعزیه (با نام نقششان)، کاربر به
  * ترتیبی که مکالمه پیش می‌رود لمس می‌کند (مثلاً اول بخش امام حسین، بعد
