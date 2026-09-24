@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permission
+        android:name="com.example.bookapp.permission.POLICY_APPLIED"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.example.bookapp.permission.POLICY_APPLIED" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
@@ -16,12 +22,12 @@
             android:name=".MainActivity"
             android:exported="true"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|uiMode"
-            android:windowSoftInputMode="adjustResize"
-            android:launchMode="singleTop">
+            android:windowSoftInputMode="adjustResize" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- Deep Link: taziehapp://section/{sectionId} برای اشتراک‌گذاری مستقیم یک بخش -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -33,6 +39,15 @@
                 android:resource="@xml/shortcuts" />
         </activity>
 
+        <receiver
+            android:name=".PolicyAppliedReceiver"
+            android:exported="true"
+            android:permission="com.example.bookapp.permission.POLICY_APPLIED">
+            <intent-filter>
+                <action android:name="com.example.bookapp.POLICY_APPLIED" />
+            </intent-filter>
+        </receiver>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -43,4 +58,5 @@
                 android:resource="@xml/file_paths" />
         </provider>
     </application>
+
 </manifest>
